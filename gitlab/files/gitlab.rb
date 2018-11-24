@@ -244,6 +244,7 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
     {% if identity.user_filter is defined %}
     user_filter: '{{ identity.get("user_filter") }}'
     {% endif %}
+    admin_group: '{{ identity.get("admin_group") }}'
 EOS
 {% endif %}
 {% endif %}
