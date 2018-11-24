@@ -388,14 +388,14 @@ gitlab_rails['env'] = {
 ### GitLab database settings
 ###! Docs: https://docs.gitlab.com/omnibus/settings/database.html
 ###! **Only needed if you use an external database.**
-# gitlab_rails['db_adapter'] = "{{ server.database.engine }}"
+# gitlab_rails['db_adapter'] = ""
 # gitlab_rails['db_encoding'] = "unicode"
 # gitlab_rails['db_collation'] = nil
-# gitlab_rails['db_database'] = "{{ server.database.name }}"
+# gitlab_rails['db_database'] = ""
 # gitlab_rails['db_pool'] = 10
-# gitlab_rails['db_username'] = "{{ server.database.user }}"
-# gitlab_rails['db_password'] = "{{ server.database.password }}"
-# gitlab_rails['db_host'] = "{{ server.database.host }}"
+# gitlab_rails['db_username'] = ""
+# gitlab_rails['db_password'] = ""
+# gitlab_rails['db_host'] = ""
 # gitlab_rails['db_port'] = 5432
 # gitlab_rails['db_socket'] = nil
 # gitlab_rails['db_sslmode'] = nil
@@ -847,7 +847,7 @@ nginx['enable'] = true
 # nginx['ssl_session_timeout'] = "5m"
 
 # nginx['ssl_dhparam'] = nil # Path to dhparams.pem, eg. /etc/gitlab/ssl/dhparams.pem
-# nginx['listen_addresses'] = ['*', '[::]']
+nginx['listen_addresses'] = ['0.0.0.0', '[::]']
 
 ##! **Defaults to forcing web browsers to always communicate using only HTTPS**
 ##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html#setting-http-strict-transport-security
@@ -856,7 +856,7 @@ nginx['enable'] = true
 
 ##! **Override only if you use a reverse proxy**
 ##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html#setting-the-nginx-listen-port
-# nginx['listen_port'] = nil
+nginx['listen_port'] = 80
 
 ##! **Override only if your reverse proxy internally communicates over HTTP**
 ##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html#supporting-proxied-ssl
