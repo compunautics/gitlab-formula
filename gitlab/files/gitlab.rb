@@ -388,15 +388,15 @@ gitlab_rails['env'] = {
 ### GitLab database settings
 ###! Docs: https://docs.gitlab.com/omnibus/settings/database.html
 ###! **Only needed if you use an external database.**
-gitlab_rails['db_adapter'] = "{{ server.database.engine }}"
+# gitlab_rails['db_adapter'] = "{{ server.database.engine }}"
 # gitlab_rails['db_encoding'] = "unicode"
 # gitlab_rails['db_collation'] = nil
-gitlab_rails['db_database'] = "{{ server.database.name }}"
+# gitlab_rails['db_database'] = "{{ server.database.name }}"
 # gitlab_rails['db_pool'] = 10
-gitlab_rails['db_username'] = "{{ server.database.user }}"
-gitlab_rails['db_password'] = "{{ server.database.password }}"
-gitlab_rails['db_host'] = "{{ server.database.host }}"
-gitlab_rails['db_port'] = 5432
+# gitlab_rails['db_username'] = "{{ server.database.user }}"
+# gitlab_rails['db_password'] = "{{ server.database.password }}"
+# gitlab_rails['db_host'] = "{{ server.database.host }}"
+# gitlab_rails['db_port'] = 5432
 # gitlab_rails['db_socket'] = nil
 # gitlab_rails['db_sslmode'] = nil
 # gitlab_rails['db_sslrootcert'] = nil
@@ -409,8 +409,8 @@ gitlab_rails['db_port'] = 5432
 ###! Docs: https://docs.gitlab.com/omnibus/settings/redis.html
 
 #### Redis TCP connection
-gitlab_rails['redis_host'] = "127.0.0.1"
-gitlab_rails['redis_port'] = 6379
+# gitlab_rails['redis_host'] = "127.0.0.1"
+# gitlab_rails['redis_port'] = 6379
 # gitlab_rails['redis_password'] = nil
 # gitlab_rails['redis_database'] = 0
 
@@ -649,7 +649,7 @@ unicorn['port'] = {{ server.unicorn.bind.port }}
 ###! By default, reconfigure reloads postgresql if it is running. If you
 ###! change any of these settings, be sure to run `gitlab-ctl restart postgresql`
 ###! after reconfigure in order for the changes to take effect.
-postgresql['enable'] = false
+postgresql['enable'] = true
 # postgresql['listen_address'] = nil
 # postgresql['port'] = 5432
 # postgresql['data_dir'] = "/var/opt/gitlab/postgresql/data"
@@ -750,7 +750,7 @@ postgresql['enable'] = false
 ##! Docs: https://docs.gitlab.com/omnibus/settings/redis.html
 ################################################################################
 
-redis['enable'] = false
+redis['enable'] = true
 # redis['username'] = "gitlab-redis"
 # redis['maxclients'] = "10000"
 # redis['tcp_timeout'] = "60"
@@ -817,7 +817,7 @@ web_server['external_users'] = ['www-data']
 ##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html
 ################################################################################
 
-nginx['enable'] = false
+nginx['enable'] = true
 # nginx['client_max_body_size'] = '250m'
 # nginx['redirect_http_to_https'] = false
 # nginx['redirect_http_to_https_port'] = 80
@@ -1245,7 +1245,7 @@ mattermost['enable'] = false
 ##! Docs: https://docs.gitlab.com/ce/administration/monitoring/prometheus/
 ################################################################################
 
-prometheus['enable'] = false
+prometheus['enable'] = true
 # prometheus['monitor_kubernetes'] = true
 # prometheus['username'] = 'gitlab-prometheus'
 # prometheus['uid'] = nil
@@ -1353,7 +1353,7 @@ postgres_exporter['enable'] = false
 # gitlab_monitor['listen_port'] = '9168'
 
 # To completely disable prometheus, and all of it's exporters, set to false
-prometheus_monitoring['enable'] = false
+prometheus_monitoring['enable'] = true
 
 ################################################################################
 ## Gitaly
