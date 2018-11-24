@@ -375,7 +375,7 @@ gitlab_rails['env'] = {
 #### Change the initial default admin password and shared runner registraion tokens.
 ####! **Only applicable on initial setup, changing these settings after database
 ####!   is created and seeded won't yield any change.**
-# gitlab_rails['initial_root_password'] = "password"
+gitlab_rails['initial_root_password'] = "{{ server.initial_root_password }}"
 # gitlab_rails['initial_shared_runners_registration_token'] = "token"
 
 #### Enable or disable automatic database migrations
