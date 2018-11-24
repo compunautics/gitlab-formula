@@ -250,7 +250,7 @@ EOS
 
 ### OmniAuth Settings
 ###! Docs: https://docs.gitlab.com/ce/integration/omniauth.html
-gitlab_rails['omniauth_enabled'] = false
+# gitlab_rails['omniauth_enabled'] = false
 # gitlab_rails['omniauth_allow_single_sign_on'] = ['saml']
 # gitlab_rails['omniauth_sync_email_from_provider'] = 'saml'
 # gitlab_rails['omniauth_auto_sign_in_with_provider'] = 'saml'
@@ -456,7 +456,7 @@ gitlab_rails['smtp_tls'] = {{ server.mail.use_tls|lower }}
 # registry_external_url 'https://registry.gitlab.example.com'
 
 ### Settings used by GitLab application
-gitlab_rails['registry_enabled'] = false
+# gitlab_rails['registry_enabled'] = false
 # gitlab_rails['registry_host'] = "registry.gitlab.example.com"
 # gitlab_rails['registry_port'] = "5005"
 # gitlab_rails['registry_path'] = "/var/opt/gitlab/gitlab-rails/shared/registry"
@@ -468,7 +468,7 @@ gitlab_rails['registry_enabled'] = false
 # gitlab_rails['registry_issuer'] = "omnibus-gitlab-issuer"
 
 ### Settings used by Registry application
-registry['enable'] = false
+# registry['enable'] = false
 # registry['username'] = "registry"
 # registry['group'] = "registry"
 # registry['uid'] = nil
@@ -517,13 +517,13 @@ registry['enable'] = false
 ##! Docs: https://gitlab.com/gitlab-org/gitlab-workhorse/blob/master/README.md
 ################################################################################
 
-gitlab_workhorse['enable'] = true
+# gitlab_workhorse['enable'] = true
 # gitlab_workhorse['ha'] = false
-gitlab_workhorse['listen_network'] = "tcp"
+# gitlab_workhorse['listen_network'] = "tcp"
 # gitlab_workhorse['listen_network'] = "unix"
 # gitlab_workhorse['listen_umask'] = 000
 
-gitlab_workhorse['listen_addr'] = "{{ server.workhorse.bind.host }}:{{ server.workhorse.bind.port }}"
+# gitlab_workhorse['listen_addr'] = "{{ server.workhorse.bind.host }}:{{ server.workhorse.bind.port }}"
 
 # gitlab_workhorse['listen_addr'] = "/var/opt/gitlab/gitlab-workhorse/socket"
 # gitlab_workhorse['auth_backend'] = "http://localhost:8080"
@@ -591,8 +591,8 @@ gitlab_workhorse['listen_addr'] = "{{ server.workhorse.bind.host }}:{{ server.wo
 
 ### Advanced settings
 
-unicorn['listen'] = "{{ server.unicorn.bind.host }}"
-unicorn['port'] = {{ server.unicorn.bind.port }}
+# unicorn['listen'] = "{{ server.unicorn.bind.host }}"
+# unicorn['port'] = {{ server.unicorn.bind.port }}
 # unicorn['socket'] = '/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket'
 # unicorn['pidfile'] = '/opt/gitlab/var/unicorn/unicorn.pid'
 # unicorn['tcp_nopush'] = true
@@ -649,7 +649,7 @@ unicorn['port'] = {{ server.unicorn.bind.port }}
 ###! By default, reconfigure reloads postgresql if it is running. If you
 ###! change any of these settings, be sure to run `gitlab-ctl restart postgresql`
 ###! after reconfigure in order for the changes to take effect.
-postgresql['enable'] = true
+# postgresql['enable'] = true
 # postgresql['listen_address'] = nil
 # postgresql['port'] = 5432
 # postgresql['data_dir'] = "/var/opt/gitlab/postgresql/data"
@@ -750,7 +750,7 @@ postgresql['enable'] = true
 ##! Docs: https://docs.gitlab.com/omnibus/settings/redis.html
 ################################################################################
 
-redis['enable'] = true
+# redis['enable'] = true
 # redis['username'] = "gitlab-redis"
 # redis['maxclients'] = "10000"
 # redis['tcp_timeout'] = "60"
@@ -804,7 +804,7 @@ redis['enable'] = true
 
 ##! When bundled nginx is disabled we need to add the external webserver user to
 ##! the GitLab webserver group.
-web_server['external_users'] = ['www-data']
+# web_server['external_users'] = ['www-data']
 # web_server['username'] = 'gitlab-www'
 # web_server['group'] = 'gitlab-www'
 # web_server['uid'] = nil
@@ -817,7 +817,7 @@ web_server['external_users'] = ['www-data']
 ##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html
 ################################################################################
 
-nginx['enable'] = true
+# nginx['enable'] = true
 # nginx['client_max_body_size'] = '250m'
 # nginx['redirect_http_to_https'] = false
 # nginx['redirect_http_to_https_port'] = 80
@@ -847,7 +847,7 @@ nginx['enable'] = true
 # nginx['ssl_session_timeout'] = "5m"
 
 # nginx['ssl_dhparam'] = nil # Path to dhparams.pem, eg. /etc/gitlab/ssl/dhparams.pem
-nginx['listen_addresses'] = ['0.0.0.0', '[::]']
+# nginx['listen_addresses'] = ['0.0.0.0', '[::]']
 
 ##! **Defaults to forcing web browsers to always communicate using only HTTPS**
 ##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html#setting-http-strict-transport-security
@@ -860,7 +860,7 @@ nginx['listen_port'] = 80
 
 ##! **Override only if your reverse proxy internally communicates over HTTP**
 ##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html#supporting-proxied-ssl
-# nginx['listen_https'] = nil
+nginx['listen_https'] = false
 
 # nginx['custom_gitlab_server_config'] = "location ^~ /foo-namespace/bar-project/raw/ {\n deny all;\n}\n"
 # nginx['custom_nginx_config'] = "include /etc/nginx/conf.d/example.conf;"
@@ -946,7 +946,7 @@ nginx['listen_port'] = 80
 ##! Docs: https://docs.gitlab.com/omnibus/settings/logs.html#logrotate
 ##! You can disable built in logrotate feature.
 ################################################################################
-logrotate['enable'] = true
+# logrotate['enable'] = true
 
 ################################################################################
 ## Users and groups accounts
@@ -955,7 +955,7 @@ logrotate['enable'] = true
 ##! Docs: https://docs.gitlab.com/omnibus/settings/configuration.html#disable-user-and-group-account-management
 ################################################################################
 
-manage_accounts['enable'] = false
+# manage_accounts['enable'] = false
 
 ################################################################################
 ## Storage directories
@@ -998,7 +998,7 @@ manage_accounts['enable'] = false
 
 ##! Define to enable GitLab Pages
 # pages_external_url "http://pages.example.com/"
-gitlab_pages['enable'] = false
+# gitlab_pages['enable'] = false
 
 ##! Configure to expose GitLab Pages on external IP address, serving the HTTP
 # gitlab_pages['external_http'] = []
@@ -1043,7 +1043,7 @@ gitlab_pages['enable'] = false
 
 # mattermost_external_url 'http://mattermost.example.com'
 
-mattermost['enable'] = false
+# mattermost['enable'] = false
 # mattermost['username'] = 'mattermost'
 # mattermost['group'] = 'mattermost'
 # mattermost['uid'] = nil
@@ -1245,7 +1245,7 @@ mattermost['enable'] = false
 ##! Docs: https://docs.gitlab.com/ce/administration/monitoring/prometheus/
 ################################################################################
 
-prometheus['enable'] = true
+# prometheus['enable'] = true
 # prometheus['monitor_kubernetes'] = true
 # prometheus['username'] = 'gitlab-prometheus'
 # prometheus['uid'] = nil
@@ -1303,7 +1303,7 @@ prometheus['enable'] = true
 ##! Docs: https://docs.gitlab.com/ce/administration/monitoring/prometheus/node_exporter.html
 ################################################################################
 
-node_exporter['enable'] = false
+# node_exporter['enable'] = false
 # node_exporter['home'] = '/var/opt/gitlab/node-exporter'
 # node_exporter['log_directory'] = '/var/log/gitlab/node-exporter'
 # node_exporter['flags'] = {
@@ -1318,7 +1318,7 @@ node_exporter['enable'] = false
 ##! Docs: https://docs.gitlab.com/ce/administration/monitoring/prometheus/redis_exporter.html
 ################################################################################
 
-redis_exporter['enable'] = false
+# redis_exporter['enable'] = false
 # redis_exporter['log_directory'] = '/var/log/gitlab/redis-exporter'
 # redis_exporter['flags'] = {
 #   'redis.addr' => "unix://#{node['gitlab']['gitlab-rails']['redis_socket']}",
@@ -1332,7 +1332,7 @@ redis_exporter['enable'] = false
 ##! Docs: https://docs.gitlab.com/ce/administration/monitoring/prometheus/postgres_exporter.html
 ################################################################################
 
-postgres_exporter['enable'] = false
+# postgres_exporter['enable'] = false
 # postgres_exporter['home'] = '/var/opt/gitlab/postgres-exporter'
 # postgres_exporter['log_directory'] = '/var/log/gitlab/postgres-exporter'
 # postgres_exporter['flags'] = {}
@@ -1353,7 +1353,7 @@ postgres_exporter['enable'] = false
 # gitlab_monitor['listen_port'] = '9168'
 
 # To completely disable prometheus, and all of it's exporters, set to false
-prometheus_monitoring['enable'] = true
+# prometheus_monitoring['enable'] = true
 
 ################################################################################
 ## Gitaly
@@ -1361,7 +1361,7 @@ prometheus_monitoring['enable'] = true
 ################################################################################
 
 
-gitaly['enable'] = true
+# gitaly['enable'] = true
 # gitaly['dir'] = "/var/opt/gitlab/gitaly"
 # gitaly['log_directory'] = "/var/log/gitlab/gitaly"
 # gitaly['bin_path'] = "/opt/gitlab/embedded/bin/gitaly"
