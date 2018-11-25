@@ -238,6 +238,7 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
     port: {{ identity.get("port", 636) }}
     uid: '{{ identity.get("uid") }}'
     encryption: '{{ identity.get("method", "plain") }}'
+    verify_certificates: {{ identity.get("verify_certificates","false") }}
     bind_dn: '{{ identity.get("bind_dn") }}'
     password: '{{ identity.get("password") }}'
     allow_username_or_email_login: {{ identity.get("allow_username_or_email_login", "true")|lower }}
