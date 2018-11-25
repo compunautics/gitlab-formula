@@ -69,7 +69,7 @@ def auth(**kwargs):
     Set up gitlab authenticated client
     '''
 
-    prefix = "gitlab."
+    prefix = "gitlab:"
 
     # look in kwargs first, then default to config file
     def get_key(key, default=None):
