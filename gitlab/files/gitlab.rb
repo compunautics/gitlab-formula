@@ -52,7 +52,7 @@ gitlab_rails['gitlab_email_reply_to'] = '{{ server.mail.reply_to }}'
 # gitlab_rails['gitlab_email_subject_suffix'] = ''
 
 ### GitLab user privileges
-gitlab_rails['gitlab_default_can_create_group'] = false
+gitlab_rails['gitlab_default_can_create_group'] = true
 gitlab_rails['gitlab_username_changing_enabled'] = false
 
 ### Default Theme
